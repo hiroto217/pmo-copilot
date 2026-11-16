@@ -1,0 +1,43 @@
+{
+  "name": "PmoCopilot",
+  "version": 2,
+  "managedBy": "CDK",
+  "runtimes": [],
+  "memories": [],
+  "knowledgeBases": [],
+  "credentials": [],
+  "evaluators": [],
+  "onlineEvalConfigs": [],
+  "agentCoreGateways": [
+    {
+      "name": "pmo-gateway",
+      "protocolType": "None",
+      "targets": [
+        {
+          "name": "pmo-kb",
+          "targetType": "connector",
+          "connectorId": "bedrock-knowledge-bases",
+          "configurations": [
+            {
+              "name": "Retrieve",
+              "parameterValues": {
+                "knowledgeBaseId": "<KB_ID>"
+              }
+            }
+          ]
+        }
+      ],
+      "authorizerType": "AWS_IAM",
+      "enableSemanticSearch": false,
+      "exceptionLevel": "NONE"
+    }
+  ],
+  "policyEngines": [],
+  "configBundles": [],
+  "harnesses": [
+    {
+      "name": "advisor",
+      "path": "app/advisor"
+    }
+  ]
+}
